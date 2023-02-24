@@ -1,0 +1,35 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Course</th>
+        <th scope="col">Year of completion</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <%  for(let i=0;i<data.length;i++) { %>
+      <tr>
+        <th scope="row"><%= i+1 %></th>
+        <td><%= data[i].name %></td>
+        <td><%= data[i].age %></td>
+        <td><%= data[i].course %></td>
+        <td><%= data[i].year_of_completion %></td>
+        <td>
+          <a href="/update/<%= data[i]._id %>" class="btn btn-primary">Update</a>
+          <a href="/deleteStudent/<%=data[i]._id %>" class="btn btn-danger">Remove</a>
+        </td>
+      </tr>
+    <% } %>
+      
+    </tbody>
+  </table>
+  
+
+
+  <%- include("partials/closingTags") %>
